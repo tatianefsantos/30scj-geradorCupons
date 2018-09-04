@@ -29,8 +29,9 @@ public class GeraHash
 	private static String formatHash(String h) {
 		Pattern pattern = Pattern.compile("(.{5})(.{5})(.{5})(.{5})(.{5})(.{5})(.{2})");
 		Matcher matcher = pattern.matcher(h);
-		if (matcher.matches())
+		if (matcher.matches()){
 			h = matcher.replaceAll("$1		$2		$3		$4		$5		$6		$7");
+		}
 		return h;
 	}
 

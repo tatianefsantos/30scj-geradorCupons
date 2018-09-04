@@ -34,7 +34,7 @@ public class GeradorCupom {
 					Paragraph nm = new Paragraph("FIAP ROUPAS");
 					nm.setAlignment(Element.ALIGN_CENTER);
 					document.add(nm);
-					Paragraph addr = new Paragraph("Av. Lins de Vasconcelos, 383 - Aclimação");
+					Paragraph addr = new Paragraph("Av. Lins de Vasconcelos, 383");
 					addr.setAlignment(Element.ALIGN_CENTER);
 					document.add(addr);
 					Paragraph stt = new Paragraph("São Paulo / SP");
@@ -168,7 +168,7 @@ public class GeradorCupom {
 						cell5.setBorderColor(BaseColor.WHITE);
 						tbhi.addCell(cell5);
 
-						PdfPCell cell6 = new PdfPCell(new Phrase(" ", tblheadfont));
+						PdfPCell cell6 = new PdfPCell(new Phrase(String.format("%.2f", item.getValor() * item.getQuantidade()), tblheadfont));
 						cell6.setBorderColor(BaseColor.WHITE);
 						tbhi.addCell(cell6);
 

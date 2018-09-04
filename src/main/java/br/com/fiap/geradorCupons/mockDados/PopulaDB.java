@@ -32,6 +32,9 @@ public class PopulaDB {
                             modelos[RandonUtils.getRandomInt(3)] + " " + tam[RandonUtils.getRandomInt(5)]);
                     item.setValor(RandonUtils.getRandomDouble(100));
                     item.setQuantidade(RandonUtils.getRandomInt(5));
+                    if(item.getQuantidade() == 0) {
+                        item.setQuantidade(1);
+                    }
 
                     items.add(item);
                     valor += item.getValor();

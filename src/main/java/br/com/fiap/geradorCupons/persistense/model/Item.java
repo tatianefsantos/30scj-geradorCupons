@@ -35,7 +35,7 @@ public class Item implements Serializable {
 		this.id = id;
 	}
 
-	public double getQuantidade() {
+	public int getQuantidade() {
 		return quantidade;
 	}
 

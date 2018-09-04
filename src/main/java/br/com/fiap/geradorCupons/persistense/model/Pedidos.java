@@ -23,7 +23,7 @@ public class Pedidos implements Serializable {
 	private LocalDate data;
 	@Column(name = "valor")
 	private double valor;
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pedido", cascade = CascadeType.ALL)
 	private Set<Item> itens = new HashSet<Item>();
 
 	public Pedidos() {
