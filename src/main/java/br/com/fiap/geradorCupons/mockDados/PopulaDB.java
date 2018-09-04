@@ -27,6 +27,7 @@ public class PopulaDB {
 
                 for (int j = 0; j < numitens; j++) {
                     Item item = new Item();
+                    item.setPedido(pedido);
                     item.setDescricao(
                             modelos[RandonUtils.getRandomInt(3)] + " " + tam[RandonUtils.getRandomInt(5)]);
                     item.setValor(RandonUtils.getRandomDouble(100));
