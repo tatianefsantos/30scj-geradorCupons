@@ -28,13 +28,17 @@ public class PedidoService {
 
 	@Cacheable(value = "buscaPedidoCache")
 	public Pedidos buscarPedidoPorId(long id) throws Exception {
+		logger.info("Buscando pedido: " + id);
 		Pedidos pedido = em.find(Pedidos.class, id);
-		if (pedido == null)
+		if (pedido == null){
+			logger.error("Pedido não foi encontrado");
 			throw new Exception("Pedido não encontrado!");
+		}
 		return pedido;
 	}
 
 	public List<Pedidos> buscarMesFevereiro() {
+		logger.info("Buscando pedidos do mês de fevereiro:");
 		try {
 			TypedQuery<Pedidos> query = em.createQuery(
 					"select p from Pedidos p where Month(p.data) = :mes and Year(p.data) = :ano",
@@ -43,6 +47,7 @@ public class PedidoService {
 			query.setParameter("ano", 2018);
 			return query.getResultList();
 		} catch (Exception e) {
+			logger.error("Erro ao buscar pedidos de fevereiro", e);
 			e.printStackTrace();
 			return null;
 		}
