@@ -37,7 +37,7 @@ public class PedidoService {
 	public List<Pedidos> buscarMesFevereiro() {
 		try {
 			TypedQuery<Pedidos> query = em.createQuery(
-					"select p from Pedidos p where Month(p.data) = :mes and Year(p.data.) = :ano",
+					"select p from Pedidos p where Month(p.data) = :mes and Year(p.data) = :ano",
 					Pedidos.class);
 			query.setParameter("mes", 2);
 			query.setParameter("ano", 2018);
