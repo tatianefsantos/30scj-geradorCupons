@@ -5,7 +5,6 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "itens", schema = "fiapRoupas")
-@SuppressWarnings("serial")
 public class Item implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -24,7 +23,7 @@ public class Item implements Serializable {
 	@Column(name = "valor")
 	private double valor;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idpedido")
 	private Pedidos pedido;
 

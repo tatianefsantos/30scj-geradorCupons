@@ -15,10 +15,10 @@ import java.util.List;
 public class PedidoService {
 
 	@Autowired
-	private PedidosRepo pedidosRepo;
+	PedidosRepo pedidosRepo;
 
 	@Autowired
-    private EntityManager em;
+    EntityManager em;
 
 	org.apache.log4j.Logger logger = Logger.getLogger(PedidoService.class);
 

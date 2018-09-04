@@ -18,10 +18,10 @@ public class Consumidor {
 
 	Logger logger = Logger.getLogger(Consumidor.class);
 
-	@JmsListener(destination = "queue.cupom", containerFactory = "jsaFactory")
+	@JmsListener(destination = "queue.cupom")
 	public void receive(String msg) throws Exception {
 		try {
-			long id = Long.parseLong(msg);
+			int id = Integer.parseInt(msg);
 			if (id == -1) { // list all from february
 				List<Pedidos> pedidos = pedidoController.buscarPedidosMesFevereiro();
 				pedidos.forEach(item->{

@@ -16,13 +16,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class GeradorCupom {
-	public static String formatCPF(String cpf) {
-		Pattern pattern = Pattern.compile("(\\d{3})(\\d{3})(\\d{3})(\\d{2})");
-		Matcher matcher = pattern.matcher(cpf);
-		if (matcher.matches())
-			cpf = matcher.replaceAll("$1.$2.$3-$4");
-		return cpf;
-	}
 
 	public static void generate(Pedidos pedido) {
 		DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd/MM/yyyy");

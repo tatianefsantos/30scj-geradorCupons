@@ -25,7 +25,8 @@ public final class PedidoController {
 	Produtor produtor;
 
 	@GetMapping(path = "/populadb")
-	public void createOrder() {
+	@ResponseStatus(code=HttpStatus.OK)
+	public void criarPedido() {
 		PopulaDB.gerarPedidos(pedidoService);
 	}
 	
@@ -34,6 +35,7 @@ public final class PedidoController {
 	}
 	
 	public List<Pedidos> buscarPedidosMesFevereiro(){
+
 		return pedidoService.buscarMesFevereiro();
 	}
 
