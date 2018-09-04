@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "itens", schema = "vendas")
+@Table(name = "itens", schema = "fiapRoupas")
 @SuppressWarnings("serial")
 public class Item implements Serializable {
 
@@ -16,10 +16,13 @@ public class Item implements Serializable {
 	private int id;
 
 	@Column(name = "quantidade")
-	private double quantidade;
+	private int quantidade;
 
 	@Column(name = "descricao")
 	private String descricao;
+
+	@Column(name = "valor")
+	private double valor;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idpedido")
@@ -37,7 +40,7 @@ public class Item implements Serializable {
 		return quantidade;
 	}
 
-	public void setQuantidade(double quantidade) {
+	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
 
@@ -48,6 +51,10 @@ public class Item implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+	public double getValor() { return valor; }
+
+	public void setValor(double valor) { this.valor = valor; }
 
 	public Pedidos getPedido() {
 		return pedido;

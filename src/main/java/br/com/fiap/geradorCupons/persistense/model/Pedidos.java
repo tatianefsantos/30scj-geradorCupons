@@ -1,13 +1,15 @@
 package br.com.fiap.geradorCupons.persistense.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "pedidos", schema = "vendas")
+@Table(name = "pedidos", schema = "fiapRoupas")
 @SuppressWarnings("serial")
 public class Pedidos implements Serializable {
 
@@ -15,11 +17,9 @@ public class Pedidos implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idpedido", unique = true)
 	private int id;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idcliente")
-	private Clientes cliente;
+	@DateTimeFormat
 	@Column(name = "data")
-	private Date data;
+	private LocalDate data;
 	@Column(name = "valor")
 	private double valor;
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "pedido")
@@ -36,19 +36,11 @@ public class Pedidos implements Serializable {
 		this.id = id;
 	}
 
-	public Clientes getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Clientes cliente) {
-		this.cliente = cliente;
-	}
-
-	public Date getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 
